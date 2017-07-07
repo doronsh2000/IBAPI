@@ -1,0 +1,12 @@
+FROM node:latest
+
+MAINTAINER Doron
+
+RUN apt-get update && apt-get install -y \
+  nodejs
+
+COPY . /
+
+
+
+CMD ["ls","-la"]

@@ -1,0 +1,3 @@
+# files & directories to ignore from docker
+
+/node_modules

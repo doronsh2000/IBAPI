@@ -1,0 +1,30 @@
+
+
+var $arr=[1.250005,1.249855,1.24987,1.006775,1.006800,0.720005,0.720295,0.72002,1.005545,1.0059,1.309915,1.30996,0.720155,0.72046,0.768295,0.768445,0.769095,1.00575,1.006105,1.00679,1.31074,1.310255];
+
+function fix_order(item){
+var int_item=item*10000000;
+   console.log("in fix_order. value sent is:" + item);
+   while  ( (( int_item) % (0.000050*10000000)) != 0){
+      console.log("item not fixed yet. item is: " + int_item/10000000);
+      int_item += 50;
+      if (int_item.toString().indexOf('99999') > -1){
+           process.exit(1);
+      }
+   }
+      console.log("item fixed. item is: " + int_item/10000000);
+}
+
+$arr.forEach(function(val){
+//console.log("val is" + val);
+//console.log("val is" + val * 10000000);
+// console.log( ( val*10000000) % (0.000050*10000000) );
+  if (  ( val*10000000) % (0.000050*10000000) == 0){
+     console.log(val);
+  }
+  else {
+     console.log("needs to fix:" + val);
+     fix_order(val);
+     
+  }
+});
